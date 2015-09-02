@@ -29,9 +29,11 @@ function term_conf {
 	mkdir -p ~/.config/terminator/
 	cp $dir/terminator-solarized/config ~/.config/terminator
 	#把默认的配色方案设置为solarized-dark
-	sed -i "{/^\s*#/d; /solarized-dark/d}" ~/.config/terminator/config
+	sed -i "{/^\s*#/d; /solarized-dark/d; /solarized-light/,+5d}" ~/.config/terminator/config
 	git clone https://github.com/seebi/dircolors-solarized.git
 	cp $dir/dircolors-solarized/dircolors.256dark ~/.dircolors
+	rm -rf $dir/terminator-solarized/
+	rm -rf $dir/dircolors-solarized/
 }
 
 function vim_conf {
@@ -48,6 +50,7 @@ function tmux_conf {
 function hosts_conf {
 	git clone https://github.com/racaljk/hosts.git
 	cat ./hosts/hosts >> /etc/hosts
+	rm -rf ./hosts/
 }
 
 function sublime_conf {
@@ -73,7 +76,6 @@ function eclipse_conf {
 	cd /opt
 	tar -zxvf $dir/eclipse-java-luna-SR2-linux-gtk-x86_64.tar.gz
 	cd $dir
-	cp ./eclipse.ini /opt/eclipse/eclipse.ini
 }
 
 function chrome_conf {
