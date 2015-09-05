@@ -141,6 +141,18 @@ function other_conf {
 	apt-get -y install python-dev python-greenlet python-gevent python-vte python-openssl python-crypto python-appindicator python-bs4 libnss3-tools
 }
 
+#如果用的是bcm网卡,用这个来解决网络慢的问题
+#如果单独执行这个函数，最后需要重启
+function bcm_conf {
+	apt-get -y install bcmwl-kernel-source       
+	cat >> /etc/modprobe.d/blacklist.conf <<EOF
+blacklist b43
+blacklist ssb
+blacklist brcmsmac
+EOF
+}
+
+
 if [ -z "$1" ]
 then
 	rootness
@@ -181,6 +193,7 @@ do
 	--inf)   infinality_conf ;;
 	--zsh)   zsh_conf ;;
 	--oth)   other_conf ;;
+	--bcm)   bcm_conf ;;
 
 	--) shift                         #使用shift将当前的参数双破折线移除
 		break ;;
