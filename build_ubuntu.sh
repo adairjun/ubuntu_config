@@ -103,10 +103,10 @@ function infinality_conf {
 function zsh_conf {
 	apt-get -y install zsh
 	chsh -s /bin/zsh
-	git clone https://github.com/robbyrussell/oh-my-zsh.git /$HOME/.oh-my-zsh
-	cp /$HOME/.oh-my-zsh/templates/zshrc.zsh-template /$HOME/.zshrc
+	git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+	cp $HOME/.oh-my-zsh/templates/zshrc.zsh-template $HOME/.zshrc
 	apt-get -y install autojump
-	cat > /$HOME/.zshrc <<EOF
+	cat > $HOME/.zshrc <<EOF
 PROMPT=$'[%{$fg[white]%}%n@%m%{$reset_color%} %~]%# '
 
 alias ll='ls -l' 
