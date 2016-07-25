@@ -1,0 +1,21 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"BracketHighlighter",
+		"Cscope",
+		"CTags",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"InsertDate",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SyncedSidebarBg"
+	]
+}
