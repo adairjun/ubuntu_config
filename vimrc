@@ -1,4 +1,3 @@
-set history=200000
 set autoindent
 set smarttab
 set paste
