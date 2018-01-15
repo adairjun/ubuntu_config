@@ -71,11 +71,15 @@ function select_opt {
     return $result
 }
 
+sshOptions=("testing" \
+"sandbox" \
+"product")
+
 echo "Select one option using up/down keys and enter to confirm:"
 echo
 
-case `select_opt "Yes" "No" "Cancel"` in
-    0) echo "selected Yes";;
-    1) echo "selected No";;
-    2) echo "selected Cancel";;
+case `select_opt "${sshOptions[@]}"` in
+    0) tmux new-window -n "testing" "zsh -c 'sshpass -p testing_passwd ssh -o StrictHostKeyChecking=no root@192.168.1.1'";;
+    1) tmux new-window -n "sandbox" "zsh -c 'sshpass -p sandbox_passwd ssh -o StrictHostKeyChecking=no root@192.168.1.1'";;
+    2) tmux new-window -n "product" "zsh -c 'sshpass -p product_passwd ssh -o StrictHostKeyChecking=no root@192.168.1.1'";;
 esac
